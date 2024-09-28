@@ -49,7 +49,7 @@ const ProductListing: React.FC = () => {
   const [sortOption, setSortOption] = useState<string>('');
   useEffect(() => {
     setIsLoading(true);
-    axios.get('http://localhost:8888/api/v1/products?page=0&size=100')
+    axios.get(`${process.env.REACT_APP_API_URL}/products?page=0&size=100`)
       .then(response => {
         const productsData = response.data.result.content;
         setProducts(productsData);
